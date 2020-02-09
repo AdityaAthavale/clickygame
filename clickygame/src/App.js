@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
-import Card from "./components/card";
+import Header from "./components/header";
+import Banner from "./components/banner";
+import CardContiner from "./components/cardcontainer";
+import Footer from './components/footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -63,43 +66,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div id="header" className="row">
-          <div className="col-md-1"/>
-          <div id="left" className="col-md-3">
-            <h3>Clicky Game</h3>
-          </div>
-          <div className="col-md-4">
-            <h3>{this.state.message}</h3>
-          </div>
-          <div id="right" className="col-md-3">
-            <h3>|Score: {this.state.score}| <br/>
-            |Top Score:{this.state.topScore}|</h3>
-          </div>
-          <div className="col-md-1"/>
-        </div>
-        <div id="info" className="row">
-          <div id="info" className="com-md-12">
-            <h3>Click on an image to earn points, but don't click on any more than once!</h3>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-2"></div>
-            <div className="col-md-8">
-              <div className="row">
-              {
-                this.state.imageSet.map((element, index) => {
-                  return (
-                    //Return Custom Component Card
-                    <Card image={element} key={index} action={this.handleImageClicked}/>
-                  )
-                })
-              }
-              </div>
-            </div>
-            <div className="col-md-2"></div>
-          </div>
-        </div>
+        <Header message={this.state.message} score={this.state.score} topScore={this.state.topScore} />
+        <Banner />
+        <CardContiner imageSet = {this.state.imageSet} handleImageClicked={this.handleImageClicked}/>
+        <Footer />
       </div>
     );
   }

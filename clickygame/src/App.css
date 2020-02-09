@@ -61,6 +61,17 @@ img {
 }
 
 
+#footer {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  background-color: black;
+}
+
+#footerImage {
+  width: 80px;
+  height: 80px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
